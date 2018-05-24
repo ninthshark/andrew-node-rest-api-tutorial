@@ -7,6 +7,7 @@ var {Todo} = require('./models/todo');
 var {User} = require('./models/user');
 
 var app = express();
+const port = process.port.ENV || 3000;
 
 //app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
@@ -53,8 +54,8 @@ app.delete('/todos/:id', (req, res) => {
     }).catch((e) => res.status(400).send());
 });
 
-app.listen(3000, () => {
-    console.log('Server is running on port 3000...')
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}...`)
 });
 
 // var Todo = mongoose.model('Todo', {
